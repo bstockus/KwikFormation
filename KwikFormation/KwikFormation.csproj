@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ECB7BD0B-1CEA-4061-AE97-44DC7932F6F2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KwikFormation</RootNamespace>
+    <AssemblyName>KwikFormation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="ConfigurationLoader.cs" />
+    <Compile Include="TabsManager.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourcesManager.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataSources.SqlDb\DataSources.SqlDb.csproj">
+      <Project>{8eaaa15b-38cf-44b9-8946-bf90b96bec13}</Project>
+      <Name>DataSources.SqlDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSources.Test\DataSources.Test.csproj">
+      <Project>{ed762832-960f-408e-a34d-9ca611d0af03}</Project>
+      <Name>DataSources.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSources.Xlsx\DataSources.Xlsx.csproj">
+      <Project>{b8fb7848-f9a6-4a29-a681-66f2d4b21b29}</Project>
+      <Name>DataSources.Xlsx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSources\DataSources.csproj">
+      <Project>{88b08b4c-af73-4284-8db0-a9e5e219ba5d}</Project>
+      <Name>DataSources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers.BindingPaths\Helpers.BindingPaths.csproj">
+      <Project>{35c3fa50-5117-4f62-bedc-b4304c058f35}</Project>
+      <Name>Helpers.BindingPaths</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers.Xml\Helpers.Xml.csproj">
+      <Project>{5ffff215-546a-4565-bdc8-777a00737366}</Project>
+      <Name>Helpers.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tabs.List\Tabs.List.csproj">
+      <Project>{7538e340-daee-4274-8fd4-35f4f8e9431d}</Project>
+      <Name>Tabs.List</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tabs.Table\Tabs.Table.csproj">
+      <Project>{3dfcb699-8d4a-4343-bd8c-7e8c965d3c84}</Project>
+      <Name>Tabs.Table</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tabs\Tabs.csproj">
+      <Project>{ce852fbf-e8dd-4bd1-8c76-bce55e3131f4}</Project>
+      <Name>Tabs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="KwikFormation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:src="clr-namespace:KwikFormation"
+        Title="KwikFormation" Height="350" Width="525" Loaded="Window_Loaded">
+    <DockPanel HorizontalAlignment="Stretch" LastChildFill="True">
+        <Grid DockPanel.Dock="Top" Margin="4,0,4,10">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                <TextBlock x:Name="lblTitle" FontSize="20" FontWeight="ExtraBold"></TextBlock>
+                <TextBlock x:Name="lblSubTitle" FontSize="14"></TextBlock>
+            </StackPanel>
+            <TextBox x:Name="txtSearch" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" Margin="0,10,10,0" Width="200" KeyDown="txtSearch_KeyDown"></TextBox>
+        </Grid>
+        <StatusBar DockPanel.Dock="Bottom">
+            
+        </StatusBar>
+        <TabControl x:Name="tabMainWindow">
+            
+        </TabControl>
+    </DockPanel>
+</Window>
