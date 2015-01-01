@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using Helpers.BindingPaths;
 
 namespace DataSources.SqlDb {
-    public class SqlDbDataSource : IDataSource {
+    public class SqlDbDataSource : IDataSource, IDisposable {
 
         private string name;
 
@@ -49,5 +49,9 @@ namespace DataSources.SqlDb {
             }
         }
 
+
+        public void Dispose() {
+            this.connection.Close();
+        }
     }
 }
