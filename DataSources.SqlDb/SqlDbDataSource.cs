@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using Helpers.BindingPaths;
 
 namespace DataSources.SqlDb {
-    public class SqlDbDataSource : IDataSource, IDisposable {
+    public sealed class SqlDbDataSource : IDataSource, IDisposable {
 
         private string name;
 

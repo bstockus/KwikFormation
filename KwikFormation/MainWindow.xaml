@@ -17,6 +17,7 @@
                 <TextBlock x:Name="lblSubTitle" FontSize="14"></TextBlock>
             </StackPanel>
             <TextBox x:Name="txtSearch" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" Margin="0,10,10,0" Width="200" KeyDown="txtSearch_KeyDown"></TextBox>
+            <TextBlock x:Name="lblSearch"  VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" Margin="0,10,10,0" Visibility="Collapsed"></TextBlock>
         </Grid>
         <StatusBar DockPanel.Dock="Bottom">
             

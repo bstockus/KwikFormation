@@ -32,6 +32,10 @@ namespace KwikFormation {
         }
 
         private void ReloadForKey(string key) {
+            this.txtSearch.Visibility = System.Windows.Visibility.Collapsed;
+            this.lblSearch.Visibility = System.Windows.Visibility.Visible;
+            this.lblSearch.Text = "Loading " + this.txtSearch.Text + "...";
+
             IDataSourceProvider dataSourceProvider = this.configuration.DataSources.DataSourceProviderForKey(key);
             this.lblTitle.Text = this.configuration.Header.TitlePrefix + (string)((IDataSourceColumnValue)dataSourceProvider.GetValue(this.configuration.Header.TitleBinding, DataSourceValueFormat.Column)).Value;
             this.lblSubTitle.Text = (string)((IDataSourceColumnValue)dataSourceProvider.GetValue(this.configuration.Header.SubTitleBinding, DataSourceValueFormat.Column)).Value;
@@ -46,8 +50,11 @@ namespace KwikFormation {
                 tabItem.Content = border;
                 this.tabMainWindow.Items.Add(tabItem);
             }
-
+            this.txtSearch.Visibility = System.Windows.Visibility.Visible;
+            this.lblSearch.Visibility = System.Windows.Visibility.Collapsed;
         }
+
+
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e) {
             if (e.Key == Key.Enter) {
